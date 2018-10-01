@@ -1,0 +1,25 @@
+# .goreleaser.yml
+# Build customization
+builds:
+-
+  main: main.go
+  binary: haystack-debug
+  goos:
+  - windows
+  - darwin
+  - linux
+  goarch:
+  - amd64
+
+github_urls:
+  api: https://github.homeawaycorp.com/api/v3/
+  upload: https://github.homeawaycorp.com/api/uploads/
+  download: https://github.homeawaycorp.com/
+
+archive:
+  format: tar.gz
+
+artifactories:
+- name: maven
+  target: https://artifactory.homeawaycorp.com/artifactory/mvn-site/{{ .ProjectName }}/{{ .Version }}/
+  username: esolis
